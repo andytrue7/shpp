@@ -5,6 +5,9 @@ import com.shpp.cs.a.graphics.WindowProgram;
 
 import java.awt.*;
 
+/**
+ * Contains constans and methods to draw pawprins on the window.
+ */
 public class Assignment2Part3 extends WindowProgram {
     /* Constants controlling the relative positions of the
      * three toes to the upper-left corner of the pawprint.
@@ -54,7 +57,7 @@ public class Assignment2Part3 extends WindowProgram {
      * @param y The y coord of the up-left corner
      */
     void drawPaw(double x, double y) {
-        drawHeel(x, y, HEEL_OFFSET_X, HEEL_OFFSET_Y);
+        drawHeel(x, y);
         drawToe(x, y, FIRST_TOE_OFFSET_X, FIRST_TOE_OFFSET_Y);
         drawToe(x, y, SECOND_TOE_OFFSET_X, SECOND_TOE_OFFSET_Y);
         drawToe(x, y, THIRD_TOE_OFFSET_X, THIRD_TOE_OFFSET_Y);
@@ -79,11 +82,9 @@ public class Assignment2Part3 extends WindowProgram {
      *
      * @param posX The x coord of the up-left corner of the bounding box for the pawprint.
      * @param posY The y coord of the up-left corner
-     * @param offsetX The offset to move from x coord
-     * @param offsetY The offset to move from y coord
      */
-    private void drawHeel(double posX, double posY, double offsetX, double offsetY) {
-        GOval heel = new GOval(posX + offsetX , posY + offsetY, HEEL_WIDTH, HEEL_HEIGHT);
+    private void drawHeel(double posX, double posY) {
+        GOval heel = new GOval(posX + HEEL_OFFSET_X , posY + HEEL_OFFSET_Y, HEEL_WIDTH, HEEL_HEIGHT);
         heel.setFilled(true);
         add(heel);
     }
