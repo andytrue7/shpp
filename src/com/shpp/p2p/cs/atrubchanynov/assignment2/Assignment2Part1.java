@@ -8,15 +8,25 @@ import java.util.Scanner;
 public class Assignment2Part1 {
 
     public static void main(String[] args) {
-        SquareRootRequest squareRootRequest = new SquareRootRequest();
-        SquareRootResponse squareRootResponse = new SquareRootResponse();
+        Scanner sc = new Scanner(System.in);
 
-        double a = squareRootRequest.getA();
-        double b = squareRootRequest.getB();
-        double c = squareRootRequest.getC();
+        double a = getCoefficient(sc, "Please enter a: ");
+        double b = getCoefficient(sc,  "Please enter b: ");
+        double c = getCoefficient(sc,  "Please enter c: ");
 
-        calcSquareRoots(a, b, c, squareRootResponse);
+        calcSquareRoots(a, b, c);
+    }
 
+    /**
+     * Gets the equation coefficient from the user input
+     *
+     * @param sc The scanner object
+     * @param prompt The text showing a user what action expected
+     * @return the value from the user input as double
+     */
+    private static double getCoefficient(Scanner sc, String prompt) {
+        System.out.print(prompt);
+        return sc.nextDouble();
     }
 
     /**
@@ -26,9 +36,8 @@ public class Assignment2Part1 {
      * @param a first coefficient
      * @param b second coefficient
      * @param c third coefficient
-     * @param squareRootResponse response class to display found roots
      */
-    private static void calcSquareRoots(double a, double b, double c, SquareRootResponse squareRootResponse) {
+    private static void calcSquareRoots(double a, double b, double c) {
         double squareRoot1;
         double squareRoot2;
         double discriminant = calcDiscriminant(a, b, c);
@@ -36,12 +45,12 @@ public class Assignment2Part1 {
         if (discriminant > 0) {
             squareRoot1 =  calcRootOne(discriminant, a, b);
             squareRoot2 = calcRootTwo(discriminant, a, b);
-            squareRootResponse.display(squareRoot1, squareRoot2);
+            display(squareRoot1, squareRoot2);
         } else if (discriminant == 0){
             squareRoot1 = calcRootOne(discriminant, a, b);
-            squareRootResponse.display(squareRoot1);
+            display(squareRoot1);
         } else {
-            squareRootResponse.display();
+            display();
         }
     }
 
@@ -77,91 +86,13 @@ public class Assignment2Part1 {
     private static double calcRootTwo(double discriminant, double a, double b){
         return (-b - Math.sqrt(discriminant)) / (2 * a);
     }
-}
-
-/**
- * Contains scanner initialization and get/set methods to retrieve user data
- */
-class SquareRootRequest {
-    private double a;
-    private double b;
-    private double c;
-
-    /**
-     * Contains scanner initialization and pass it to setters
-     */
-    public SquareRootRequest() {
-        Scanner sc = new Scanner(System.in);
-
-        this.setA(sc);
-        this.setB(sc);
-        this.setC(sc);
-    }
-
-    /**
-     * Returns the coefficient 'a' entered by a user
-     * @return coefficien 'a' as double
-     */
-    public double getA() {
-        return a;
-    }
-
-    /**
-     * Asks to enter a coefficient 'a' and store it to a class field
-     *
-     * @param sc the Scanner object
-     */
-    public void setA(Scanner sc) {
-        System.out.print("Please enter a: ");
-        this.a = sc.nextDouble();
-    }
-
-    /**
-     * Returns the coefficient 'b' entered by a user
-     * @return coefficien 'b' as double
-     */
-    public double getB() {
-        return b;
-    }
-
-    /**
-     * Asks to enter a coefficient 'b' and store it to a class field
-     * @param sc the Scanner object
-     */
-    public void setB(Scanner sc) {
-        System.out.print("Please enter b: ");
-        this.b = sc.nextDouble();
-    }
-
-    /**
-     * Returns the coefficient 'c' entered by a user
-     * @return coefficien 'c' as double
-     */
-    public double getC() {
-        return c;
-    }
-
-    /**
-     * Asks to enter a coefficient 'c' and store it to a class field
-     * @param sc the Scanner object
-     */
-    public void setC(Scanner sc) {
-        System.out.print("Please enter c: ");
-        this.c = sc.nextDouble();
-    }
-}
-
-/**
- * Contains methods to display found roots
- */
-class SquareRootResponse {
 
     /**
      * Displays the single root
      *
      * @param squareRoot a found root to display
      */
-    public void display(double squareRoot) {
+    private static void display(double squareRoot) {
         System.out.println("There is one root: " + squareRoot);
     }
 
@@ -171,14 +102,14 @@ class SquareRootResponse {
      * @param squareRoot1 the first root to display
      * @param squareRoot2 the second root to display
      */
-    public void display(double squareRoot1, double squareRoot2) {
+    private static void display(double squareRoot1, double squareRoot2) {
         System.out.println("There are two roots: " + squareRoot1 + " and " + squareRoot2);
     }
 
     /**
      * Displays no roots found
      */
-    public void display() {
+    private static void display() {
         System.out.println("There are no real roots");
     }
 }
