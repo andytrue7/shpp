@@ -3,12 +3,15 @@ package com.shpp.p2p.cs.atrubchanynov.assignment2;
 import acm.graphics.GRect;
 import com.shpp.cs.a.graphics.WindowProgram;
 
+/**
+ * Constains constants and methods to create an illusion of rectangles displayed in a table view
+ */
 public class Assignment2Part5 extends WindowProgram {
     /* The number of rows and columns in the grid, respectively. */
     private static final int NUM_ROWS = 5;
     private static final int NUM_COLS = 6;
 
-    /* The width and height of each box. */
+    /* The width and height of the box. */
     private static final double BOX_SIZE = 40;
 
     /* The horizontal and vertical spacing between the boxes. */
@@ -31,6 +34,7 @@ public class Assignment2Part5 extends WindowProgram {
 
     /**
      * Draws a rectancle based on the provided x, y coordinates
+     *
      * @param posX The x coord of the up-left corner of the box
      * @param posY The y coord of the up-left corner of the box
      */
@@ -41,7 +45,8 @@ public class Assignment2Part5 extends WindowProgram {
     }
 
     /**
-     * Calculates the x coordinate to place a box in column counting box spacing
+     * Calculates the x coordinate of the box counting a column index, offset and box spacing
+     *
      * @param colIdx the index of the column starting from 0
      * @return the x coordinate of the box
      */
@@ -53,7 +58,7 @@ public class Assignment2Part5 extends WindowProgram {
     }
 
     /**
-     * Calculates the y coordinate to place a box in a row counting box spacing
+     * Calculates the y coordinate of the box counting a row index, offset and box spacing
      *
      * @param rowIdx the index of the row starting from 0
      * @return the y coordinate of the box

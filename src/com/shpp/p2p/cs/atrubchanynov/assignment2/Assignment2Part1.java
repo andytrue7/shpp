@@ -3,12 +3,9 @@ package com.shpp.p2p.cs.atrubchanynov.assignment2;
 import java.util.Scanner;
 
 /**
- * A class to find possible square roots in a square equation based on the input values
+ * Contains methods to find square roots in a square equation based on the input values
  */
 public class Assignment2Part1 {
-
-    static double squareRoot1;
-    static double squareRoot2;
 
     public static void main(String[] args) {
         SquareRootRequest squareRootRequest = new SquareRootRequest();
@@ -18,6 +15,22 @@ public class Assignment2Part1 {
         double b = squareRootRequest.getB();
         double c = squareRootRequest.getC();
 
+        calcSquareRoots(a, b, c, squareRootResponse);
+
+    }
+
+    /**
+     * Calculates square roots of an equation based on coefficients and discriminant.
+     * Prints the result to the console
+     *
+     * @param a first coefficient
+     * @param b second coefficient
+     * @param c third coefficient
+     * @param squareRootResponse response class to display found roots
+     */
+    private static void calcSquareRoots(double a, double b, double c, SquareRootResponse squareRootResponse) {
+        double squareRoot1;
+        double squareRoot2;
         double discriminant = calcDiscriminant(a, b, c);
 
         if (discriminant > 0) {
@@ -30,7 +43,6 @@ public class Assignment2Part1 {
         } else {
             squareRootResponse.display();
         }
-
     }
 
     /**
@@ -68,44 +80,71 @@ public class Assignment2Part1 {
 }
 
 /**
- * Describes a request
+ * Contains scanner initialization and get/set methods to retrieve user data
  */
 class SquareRootRequest {
-    private Scanner sc;
     private double a;
     private double b;
     private double c;
 
+    /**
+     * Contains scanner initialization and pass it to setters
+     */
     public SquareRootRequest() {
-        sc = new Scanner(System.in);
+        Scanner sc = new Scanner(System.in);
 
         this.setA(sc);
         this.setB(sc);
         this.setC(sc);
     }
 
+    /**
+     * Returns the coefficient 'a' entered by a user
+     * @return coefficien 'a' as double
+     */
     public double getA() {
         return a;
     }
 
+    /**
+     * Asks to enter a coefficient 'a' and store it to a class field
+     *
+     * @param sc the Scanner object
+     */
     public void setA(Scanner sc) {
         System.out.print("Please enter a: ");
         this.a = sc.nextDouble();
     }
 
+    /**
+     * Returns the coefficient 'b' entered by a user
+     * @return coefficien 'b' as double
+     */
     public double getB() {
         return b;
     }
 
+    /**
+     * Asks to enter a coefficient 'b' and store it to a class field
+     * @param sc the Scanner object
+     */
     public void setB(Scanner sc) {
         System.out.print("Please enter b: ");
         this.b = sc.nextDouble();
     }
 
+    /**
+     * Returns the coefficient 'c' entered by a user
+     * @return coefficien 'c' as double
+     */
     public double getC() {
         return c;
     }
 
+    /**
+     * Asks to enter a coefficient 'c' and store it to a class field
+     * @param sc the Scanner object
+     */
     public void setC(Scanner sc) {
         System.out.print("Please enter c: ");
         this.c = sc.nextDouble();
@@ -113,17 +152,32 @@ class SquareRootRequest {
 }
 
 /**
- * Describes a response
+ * Contains methods to display found roots
  */
 class SquareRootResponse {
+
+    /**
+     * Displays the single root
+     *
+     * @param squareRoot a found root to display
+     */
     public void display(double squareRoot) {
         System.out.println("There is one root: " + squareRoot);
     }
 
+    /**
+     * Displays both roots
+     *
+     * @param squareRoot1 the first root to display
+     * @param squareRoot2 the second root to display
+     */
     public void display(double squareRoot1, double squareRoot2) {
         System.out.println("There are two roots: " + squareRoot1 + " and " + squareRoot2);
     }
 
+    /**
+     * Displays no roots found
+     */
     public void display() {
         System.out.println("There are no real roots");
     }

@@ -7,11 +7,16 @@ import com.shpp.cs.a.graphics.WindowProgram;
 import java.awt.*;
 
 /**
- * Contains constans and methods to draw a tricolor flag with a label on the window.
+ * Contains constans and methods to draw a tricolor flag with a label.
  */
 public class Assignment2Part4 extends WindowProgram {
+    /* Constans define the stripe width and height of the flag
+     */
     private static final double FLAG_STRIPE_WIDTH = 80;
     private static final double FLAG_STRIPE_HEIGHT = 150;
+
+    /* Constants define the label text, label font name and font size
+     */
     private static final String FLAG_LABEL_TEXT = "Flag of Belgium";
     private static final String FLAG_LABEL_FONT_NAME = "Arial";
     private static final int FLAG_LABEL_FONT_SIZE = 20;

@@ -29,7 +29,7 @@ public class Assignment2Part6 extends WindowProgram {
     }
 
     /**
-     * Draws a Caterpillar on the window
+     * Draws a Caterpillar
      */
     private void drawCaterpillar() {
         double posX = INIT_POSX;
@@ -43,7 +43,6 @@ public class Assignment2Part6 extends WindowProgram {
             } else {
                 drawOval(posX, posY);
             }
-
         }
     }
 
