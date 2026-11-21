@@ -18,7 +18,7 @@ public class Assignment2Part1 {
     }
 
     /**
-     * Gets the equation coefficient from the user input
+       * Gets the equation coefficient from the user input
      *
      * @param sc The scanner object
      * @param prompt The text showing a user what action expected

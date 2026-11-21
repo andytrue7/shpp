@@ -1,2 +1,31 @@
-.idea
-**/.DS_Store
+# Compiled output
+*.class
+out/
+target/
+build/
+bin/
+
+# Packaged files (but see note about the course jars below)
+*.war
+*.ear
+
+# Logs and crash dumps
+*.log
+hs_err_pid*
+
+# IntelliJ IDEA
+.idea/
+*.iml
+*.iws
+
+# Eclipse / VS Code
+.classpath
+.project
+.settings/
+.vscode/
+
+# Gradle
+.gradle/
+
+# macOS
+.DS_Store
